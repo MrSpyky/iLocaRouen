@@ -16,10 +16,10 @@
 			
 			// Assignation des valeurs
 			$q->bindValue(':type', $meuble->type());
-			$q->bindValue(':photo1', $meuble->photo1(), PDO::PARAM_INT);
-			$q->bindValue(':photo2', $meuble->photo2(), PDO::PARAM_INT);
-			$q->bindValue(':photo3', $meuble->photo3(), PDO::PARAM_INT);
-			$q->bindValue(':rentedBy', $meuble->rentedBy(), PDO::PARAM_INT);
+			$q->bindValue(':photo1', $meuble->photo1() );
+			$q->bindValue(':photo2', $meuble->photo2());
+			$q->bindValue(':photo3', $meuble->photo3() );
+			$q->bindValue(':rentedBy', $meuble->rentedBy());
 			
 			// Exécution de la requête.
 			$q->execute();		
