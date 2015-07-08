@@ -75,10 +75,9 @@
 				$this->_photo3 =  $photo3;
 			}
 		}
-		public function setRentedBy($RentedBy)
+		public function setRentedBy($rentedBy)
 		{
-			$this->_rentedBy = (int)  $rentedBy;
+			$this->_rentedBy = (int) $rentedBy;
 		}
 		
 	}
-?>
