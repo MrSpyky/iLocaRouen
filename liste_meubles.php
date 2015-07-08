@@ -28,26 +28,39 @@
 		
 		<div id="test">
 		<?php
-			echo "Test nul";
+			echo ("Test nul <br/>");
+			// On enregistre notre autoload.
+			function chargerClasse($classname)
+			{
+			  require 'class_'.$classname.'.php';
+			  echo 'CLASS CHARGEE : <br/>';
+			  echo 'class_'.$classname.'.php';
+			}
+
+			spl_autoload_register('chargerClasse');
 		?>
-			<?php 
-				
-				include('class_MeubleManager.php');
-				include('class_Meuble.php');
-				include('function_returnDb.php');
-				$meubleTest = new  Meuble([
+			<?php
+				require('function_returnDb.php');
+			
+				$donnees = [
+				"id" => 2,
 				"type" => "Frigo",
-				"photo1" => "URLphoto1",
+				"photo1" => "URLphoto1 MODIFIE",
 				"photo2" => "URLphoto2",
 				"photo3" => "URLphoto3",
-				"rentedBy" => "NO ONE"
-				]);
-				echo "Va te faire enculer";
-				
+				"rentedby" => 12
+				];
+				var_dump($donnees);
+				$meubleTest = new Meuble($donnees);
+				echo "<br/>Va te faire enculer<br/>";
 				$db = returnDb();
 				$manager = new MeubleManager($db);
+				$meubles = [];
+				$meubles = $manager->getList();
+				var_dump($meubles);
 				
-				$manager-> add($meubleTest);
+				
+				
 			?>
 		</div>
 
